@@ -1,31 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-
-// const TrainerList = () => {
-//   const [trainers, setTrainers] = useState([]);
-
-//   useEffect(() => {
-//     const stored = JSON.parse(localStorage.getItem('trainers')) || [];
-//     setTrainers(stored);
-//   }, []);
-
-//   return (
-//     <div className="p-6">
-//       <h2 className="text-2xl font-bold mb-4">Available Trainers</h2>
-//       {trainers.length === 0 ? (
-//         <p>No trainers available. Check back later!</p>
-//       ) : (
-//         <ul className="space-y-2">
-//           {trainers.map((t, i) => (
-//             <li key={i} className="p-3 bg-gray-100 rounded shadow">{t.name}</li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default TrainerList;
-
 import React, { useState, useEffect } from 'react';
 import MemberNavbar from './MemberNavbar';
 
