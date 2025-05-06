@@ -4,10 +4,9 @@ import MemberNavbar from './MemberNavbar';
 const TrainerBooking = () => {
   const [trainers, setTrainers] = useState([]);
   const [bookedTrainer, setBookedTrainer] = useState(null);
-  const memberUsername = 'member123'; // Replace with the actual username logic if necessary
+  const memberUsername = 'member123'; // Replace with actual logic if needed
 
   useEffect(() => {
-    // Simulating fetching trainers from a dummy source
     const dummyTrainers = [
       { name: 'John Doe', expertise: 'Yoga' },
       { name: 'Jane Smith', expertise: 'Strength Training' },
@@ -15,9 +14,8 @@ const TrainerBooking = () => {
     ];
     setTrainers(dummyTrainers);
 
-    // Simulating fetching member's booking (dummy value)
     const dummyBookings = [
-      { trainerName: 'John Doe', member: 'member123' }, // Example booking
+      { trainerName: 'John Doe', member: 'member123' },
     ];
 
     const myBooking = dummyBookings.find(b => b.member === memberUsername);
@@ -28,31 +26,34 @@ const TrainerBooking = () => {
   }, [memberUsername]);
 
   const handleBook = (trainer) => {
-    if (bookedTrainer) return; // Prevent multiple bookings
-
-    // Simulating booking a trainer (add booking to dummy bookings)
+    if (bookedTrainer) return;
     const newBooking = { trainerName: trainer.name, member: memberUsername };
     console.log('Booking trainer:', newBooking);
     setBookedTrainer(trainer);
   };
 
   const handleCancel = () => {
-    // Simulating canceling the booking
     console.log('Canceling booking for trainer:', bookedTrainer.name);
     setBookedTrainer(null);
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div
+      className="p-6 min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
+      <div className="mt-8 max-w-4xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-4">Book a Trainer</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {trainers.map((t, i) => (
-            <div key={i} className="border p-4 rounded shadow">
+            <div key={i} className="border p-4 rounded shadow bg-white bg-opacity-80">
               <h2 className="text-lg font-semibold">{t.name}</h2>
-              <p className="text-sm text-gray-500">{t.expertise}</p>
+              <p className="text-sm text-gray-600">{t.expertise}</p>
               {bookedTrainer?.name === t.name ? (
                 <button
                   className="mt-2 bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
@@ -72,17 +73,15 @@ const TrainerBooking = () => {
             </div>
           ))}
         </div>
+
+        {bookedTrainer && (
+          <p className="mt-4 text-green-700 font-medium">
+            You have booked <strong>{bookedTrainer.name}</strong> for {bookedTrainer.expertise}.
+          </p>
+        )}
       </div>
-      {bookedTrainer && (
-        <p className="mt-4 text-green-600">
-          You have booked <strong>{bookedTrainer.name}</strong> for {bookedTrainer.expertise}.
-        </p>
-      )}
     </div>
   );
 };
 
 export default TrainerBooking;
-
-
-

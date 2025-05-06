@@ -39,6 +39,7 @@ const App = () => {
       <Route path="/trainer/dashboard" element={<TrainerDashboard />} />
       <Route path="/admin/bookings" element={<ManageBookings />} />
       <Route path="/admin/reports" element={<AdminReport />} />
+      <Route path="/member/dashboard" element={<MemberDashboard />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

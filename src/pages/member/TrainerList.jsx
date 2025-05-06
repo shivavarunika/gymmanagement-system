@@ -5,7 +5,6 @@ const TrainerList = () => {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    // Simulated fetch of trainer data — replace with an actual API call later
     const fetchTrainers = async () => {
       const dummyTrainers = [
         { name: 'John Doe', specialization: 'Weight Training' },
@@ -19,16 +18,25 @@ const TrainerList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
+      <div className="mt-8 max-w-4xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-4">Available Trainers</h1>
         {trainers.length === 0 ? (
           <p>No trainers available. Check back later!</p>
         ) : (
           <ul className="space-y-2">
             {trainers.map((trainer, index) => (
-              <li key={index} className="p-3 bg-gray-100 rounded shadow">
+              <li
+                key={index}
+                className="p-3 bg-white bg-opacity-80 rounded shadow"
+              >
                 <p className="font-semibold">{trainer.name}</p>
                 <p className="text-sm text-gray-600">{trainer.specialization}</p>
               </li>

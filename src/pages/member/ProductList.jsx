@@ -14,16 +14,21 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
-      <div className="max-w-4xl mx-auto">
+      <div className="mt-8 max-w-6xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-4">Available Products</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white border rounded shadow p-4 hover:shadow-lg transition"
+              className="bg-white bg-opacity-80 border rounded shadow p-4 hover:shadow-lg transition"
             >
               {product.image && (
                 <img
@@ -38,7 +43,6 @@ const ProductList = () => {
           ))}
         </div>
       </div>
-    </div>
     </div>
   );
 };

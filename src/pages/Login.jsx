@@ -97,7 +97,7 @@ export default function Login() {
                             <button
                                 type="button"
                                 onClick={toggleForm}
-                                className="text-blue-500 underline"
+                                className="text-blue-500 underline hover:text-red-500 hover:underline"
                             >
                                 Register
                             </button>
@@ -149,7 +149,7 @@ export default function Login() {
                             <button
                                 type="button"
                                 onClick={toggleForm}
-                                className="text-blue-500 underline"
+                                className="text-blue-500 underline hover:text-red-500 hover:underline"
                             >
                                 Login
                             </button>

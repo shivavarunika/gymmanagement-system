@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MemberNavbar from './MemberNavbar'; 
+import MemberNavbar from './MemberNavbar';
 
 const BMICalculator = () => {
   const [weight, setWeight] = useState('');
@@ -21,15 +21,42 @@ const BMICalculator = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
-      <h1 className="text-2xl font-bold mb-4">BMI Calculator</h1>
-      <input type="number" placeholder="Weight (kg)" className="border p-2 mr-2" onChange={e => setWeight(e.target.value)} />
-      <input type="number" placeholder="Height (cm)" className="border p-2 mr-2" onChange={e => setHeight(e.target.value)} />
-      <button onClick={calculateBMI} className="bg-green-500 text-white px-4 py-2">Calculate</button>
-      {bmi && <p className="mt-4">BMI: {bmi} ({category})</p>}
-    </div>
+      <div className="mt-8 max-w-2xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
+        <h1 className="text-2xl font-bold mb-4">BMI Calculator</h1>
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <input
+            type="number"
+            placeholder="Weight (kg)"
+            className="border p-2 flex-1"
+            onChange={(e) => setWeight(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Height (cm)"
+            className="border p-2 flex-1"
+            onChange={(e) => setHeight(e.target.value)}
+          />
+        </div>
+        <button
+          onClick={calculateBMI}
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        >
+          Calculate
+        </button>
+        {bmi && (
+          <p className="mt-4 text-lg">
+            <strong>BMI:</strong> {bmi} ({category})
+          </p>
+        )}
+      </div>
     </div>
   );
 };

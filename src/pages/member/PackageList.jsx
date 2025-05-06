@@ -26,17 +26,23 @@ const PackageList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
+      <div className="mt-8 max-w-4xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-4">Available Packages</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {packages.length > 0 ? (
             packages.map((pkg, index) => (
-              <div key={index} className="p-4 border rounded shadow">
+              <div key={index} className="p-4 border rounded shadow bg-white bg-opacity-80">
                 <h2 className="text-xl font-semibold mb-2">{pkg.name}</h2>
-                <p className="text-gray-600 mb-2">{pkg.description}</p>
+                <p className="text-gray-700 mb-2">{pkg.description}</p>
                 <p className="font-semibold text-lg">${pkg.price}</p>
               </div>
             ))

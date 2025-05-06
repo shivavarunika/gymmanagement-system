@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const MemberNavbar = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   const handleLogout = () => {
     navigate('/');
@@ -11,14 +11,20 @@ const MemberNavbar = () => {
 
   const getButtonClass = (path) => {
     return location.pathname === path
-      ? 'text-red-600 hover:text-red-700'  // Active button style
-      : 'text-blue-500 hover:text-red-600'; // Default button style
+      ? 'text-red-600 hover:text-red-700'
+      : 'text-zinc-500 hover:text-red-600';
   };
 
   return (
     <nav className="bg-white shadow px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between">
-      <div className="text-2xl font-bold text-blue-600 mb-4 md:mb-0">Gym Member Portal</div>
+      <div className="text-2xl font-bold text-zinc-600 mb-4 md:mb-0">Gym Member Portal</div>
       <div className="flex flex-wrap gap-4 text-sm md:text-base">
+        <button
+          onClick={() => navigate('/member/dashboard')}
+          className={getButtonClass('/member/dashboard')}
+        >
+          Home
+        </button>
         <button
           onClick={() => navigate('/member/trainers')}
           className={getButtonClass('/member/trainers')}
