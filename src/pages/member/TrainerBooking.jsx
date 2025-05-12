@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MemberNavbar from './MemberNavbar';
 
@@ -46,13 +45,22 @@ const TrainerBooking = () => {
   };
 
   return (
-    <div className="p-6 min-h-screen bg-gray-100">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">Book a Trainer</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="mt-8 max-w-4xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
+        <h1 className="text-2xl font-bold mb-6 text-center">Book a Trainer</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {trainers.map((t, i) => (
-            <div key={i} className="border p-4 rounded shadow bg-white flex items-center gap-4">
+            <div
+              key={i}
+              className="bg-white bg-opacity-95 rounded shadow-md p-4 hover:shadow-lg transition-transform hover:scale-105 flex items-center gap-4"
+            >
               <img src={t.image} alt={t.name} className="w-16 h-16 rounded-full object-cover" />
               <div>
                 <h2 className="text-lg font-semibold">{t.name}</h2>

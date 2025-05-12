@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MemberNavbar from './MemberNavbar';
 
@@ -18,10 +17,16 @@ const ScheduledTraining = () => {
   }, [username]);
 
   return (
-    <div className="p-6 min-h-screen bg-gray-100">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://theironoffice.com/cdn/shop/files/Gym_12.23-19.jpg?v=1701994187&width=3840')",
+      }}
+    >
       <MemberNavbar />
-      <div className="mt-8 max-w-4xl mx-auto bg-white p-6 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">My Training Schedule</h1>
+      <div className="mt-8 max-w-4xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
+        <h1 className="text-2xl font-bold mb-6 text-center">My Training Schedule</h1>
         {trainerName ? (
           <div className="bg-white p-4 rounded shadow">
             <p>Trainer: <strong>{trainerName}</strong></p>

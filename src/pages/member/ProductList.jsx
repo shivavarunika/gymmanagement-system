@@ -23,22 +23,22 @@ const ProductList = () => {
     >
       <MemberNavbar />
       <div className="mt-8 max-w-6xl mx-auto bg-white bg-opacity-90 p-6 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">Available Products</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Available Products</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white bg-opacity-80 border rounded shadow p-4 hover:shadow-lg transition"
+              className="bg-white bg-opacity-95 rounded shadow-md p-4 hover:shadow-lg transition-transform hover:scale-105"
             >
               {product.image && (
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-40 object-cover rounded mb-2"
+                  className="w-full h-40 object-cover rounded mb-4"
                 />
               )}
-              <h2 className="text-xl font-semibold">{product.name}</h2>
-              <p className="text-gray-700">${product.price}</p>
+              <h2 className="text-lg font-bold mb-1">{product.name}</h2>
+              <p className="text-blue-600 font-semibold mb-2">₹{product.price}</p>
             </div>
           ))}
         </div>
