@@ -18,7 +18,8 @@ import TrainerBookingList from './pages/admin/TrainerBookingList';
 import TrainerDashboard from './pages/trainer/TrainerDashboard';
 import ManageBookings from './pages/admin/ManageBookings';
 import AdminReport from './pages/admin/AdminReport';
-
+import ViewProfile from './pages/member/ViewProfile';
+import EditProfile from './pages/member/EditProfile';
 const App = () => {
   return (
     <Routes>
@@ -40,6 +41,8 @@ const App = () => {
       <Route path="/admin/bookings" element={<ManageBookings />} />
       <Route path="/admin/reports" element={<AdminReport />} />
       <Route path="/member/dashboard" element={<MemberDashboard />} />
+<Route path="/member/view-profile" element={<ViewProfile />} />
+<Route path="/member/edit-profile" element={<EditProfile />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
