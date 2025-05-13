@@ -4,8 +4,8 @@ import AdminNavbar from './AdminNavbar';
 
 const AdminProductManager = () => {
   const [products, setProducts] = useState([
-    { name: 'Dumbbell Set', price: 49.99, image: 'https://via.placeholder.com/150?text=Dumbbell' },
-    { name: 'Yoga Mat', price: 19.99, image: 'https://via.placeholder.com/150?text=Yoga+Mat' },
+    { name: 'Dumbbell Set', price: 49.99, image: 'https://img.freepik.com/free-photo/still-life-yoga-equipment_23-2151725313.jpg' },
+    { name: 'Yoga Mat', price: 19.99, image: 'https://img.freepik.com/free-photo/still-life-yoga-equipment_23-2151725313.jpg' },
   ]);
   const [editingIndex, setEditingIndex] = useState(null);
   const [form, setForm] = useState({ name: '', price: '', image: '' });

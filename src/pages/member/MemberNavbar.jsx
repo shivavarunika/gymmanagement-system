@@ -34,7 +34,6 @@ const MemberNavbar = () => {
   return (
     <nav className="bg-white shadow px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between">
       <div className="text-2xl font-bold text-zinc-600 mb-4 md:mb-0">Gym Member Portal</div>
-      
       <div className="flex flex-wrap items-center gap-4 text-sm md:text-base">
         <button onClick={() => navigate('/member/dashboard')} className={getButtonClass('/member/dashboard')}>Home</button>
         <button onClick={() => navigate('/member/trainers')} className={getButtonClass('/member/trainers')}>Trainers</button>

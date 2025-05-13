@@ -1,5 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
+import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css';
 
 const TrainerDashboard = () => {
   const trainerName = localStorage.getItem('trainerName') || 'john_doe';
@@ -21,32 +24,40 @@ const TrainerDashboard = () => {
     trainerSchedule[member] = time;
     allSchedules[trainerName] = trainerSchedule;
     localStorage.setItem('trainerSchedules', JSON.stringify(allSchedules));
-    setSchedule(trainerSchedule);
+    setSchedule({ ...trainerSchedule });
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Trainer Dashboard</h1>
-      <h2 className="text-xl mb-2">Your Booked Members</h2>
+    <div
+      className="min-h-screen bg-cover bg-center p-6"
+      style={{
+        backgroundImage: `url('https://t4.ftcdn.net/jpg/03/33/91/97/360_F_333919715_R1mDUWPgwB2CRvSCNnvnmtn64gPY40ZL.jpg')`
+      }}
+    >
+      <div className="bg-white bg-opacity-90 rounded-lg shadow-lg max-w-3xl mx-auto p-6">
+        <h1 className="text-3xl font-bold mb-6 text-center">Trainer Dashboard</h1>
+        <h2 className="text-xl font-semibold mb-4">Your Booked Members</h2>
 
-      {bookings.length === 0 ? (
-        <p>No members have booked you yet.</p>
-      ) : (
-        bookings.map((b, i) => (
-          <div key={i} className="mb-4 p-4 border rounded">
-            <p><strong>Member:</strong> {b.member}</p>
-            <input
-              className="border px-2 py-1 mt-2 rounded"
-              placeholder="Add schedule"
-              defaultValue={schedule[b.member] || ''}
-              onBlur={(e) => handleSchedule(b.member, e.target.value)}
-            />
-            <p className="text-sm text-green-600 mt-1">
-              Scheduled: {schedule[b.member] || 'Not scheduled'}
-            </p>
-          </div>
-        ))
-      )}
+        {bookings.length === 0 ? (
+          <p className="text-gray-700">No members have booked you yet.</p>
+        ) : (
+          bookings.map((b, i) => (
+            <div key={i} className="mb-4 p-4 border rounded bg-gray-100">
+              <p className="font-semibold">Member: {b.member}</p>
+              <TimePicker
+                onChange={(value) => handleSchedule(b.member, value)}
+                value={schedule[b.member] || ''}
+                format="hh:mm a"
+                disableClock
+                className="w-full mt-2"
+              />
+              <p className="text-sm text-green-600 mt-1">
+                Scheduled: {schedule[b.member] || 'Not scheduled'}
+              </p>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
