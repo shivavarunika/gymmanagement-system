@@ -9,17 +9,17 @@ const ProductList = () => {
       {
         name: 'Dumbbell Set',
         price: 49.99,
-        image: 'https://img.freepik.com/free-photo/dumbbells-yoga-mat-floor_1150-4292.jpg' // Correct image URL
+        image: 'https://img.freepik.com/free-photo/dumbbells-yoga-mat-floor_1150-4292.jpg'
       },
       {
         name: 'Yoga Mat',
         price: 19.99,
-        image: 'https://img.freepik.com/free-photo/still-life-yoga-equipment_23-2151725313.jpg' // Correct image URL
+        image: 'https://img.freepik.com/free-photo/still-life-yoga-equipment_23-2151725313.jpg'
       },
       {
         name: 'Protein Powder',
         price: 29.99,
-        image: 'https://img.freepik.com/free-photo/protein-powder-scoop-powder-background_1150-4219.jpg' // Correct image URL
+        image: 'https://img.freepik.com/free-photo/protein-powder-scoop-powder-background_1150-4219.jpg'
       },
     ];
     setProducts(dummyProducts);
@@ -40,17 +40,17 @@ const ProductList = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white bg-opacity-95 rounded shadow-md p-4 hover:shadow-lg transition-transform hover:scale-105"
+              className="bg-white bg-opacity-95 rounded shadow-md p-4 hover:shadow-lg transition-transform hover:scale-105 min-h-[320px]"
             >
               {product.image && (
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-auto object-cover rounded mb-4"
+                  className="w-full h-48 object-cover rounded mb-4"
                 />
               )}
-              <h2 className="text-lg font-bold mb-1">{product.name}</h2>
-              <p className="text-blue-600 font-semibold mb-2">₹{product.price}</p>
+              <h2 className="text-lg font-bold mb-1 text-center">{product.name}</h2>
+              <p className="text-blue-600 font-semibold text-center">₹{product.price}</p>
             </div>
           ))}
         </div>
