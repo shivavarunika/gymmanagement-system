@@ -1,8 +1,4 @@
-
 import React, { useEffect, useState } from 'react';
-import TimePicker from 'react-time-picker';
-import 'react-time-picker/dist/TimePicker.css';
-import 'react-clock/dist/Clock.css';
 
 const TrainerDashboard = () => {
   const trainerName = localStorage.getItem('trainerName') || 'john_doe';
@@ -44,12 +40,11 @@ const TrainerDashboard = () => {
           bookings.map((b, i) => (
             <div key={i} className="mb-4 p-4 border rounded bg-gray-100">
               <p className="font-semibold">Member: {b.member}</p>
-              <TimePicker
-                onChange={(value) => handleSchedule(b.member, value)}
+              <input
+                type="time"
                 value={schedule[b.member] || ''}
-                format="hh:mm a"
-                disableClock
-                className="w-full mt-2"
+                onChange={(e) => handleSchedule(b.member, e.target.value)}
+                className="w-full mt-2 p-2 border rounded"
               />
               <p className="text-sm text-green-600 mt-1">
                 Scheduled: {schedule[b.member] || 'Not scheduled'}
