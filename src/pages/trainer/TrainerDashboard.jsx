@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const TrainerDashboard = () => {
+  const navigate = useNavigate();
   const trainerName = localStorage.getItem('trainerName') || 'john_doe';
   const [bookings, setBookings] = useState([]);
   const [schedule, setSchedule] = useState({});
@@ -23,6 +25,11 @@ const TrainerDashboard = () => {
     setSchedule({ ...trainerSchedule });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('trainerName');
+    navigate('/');
+  };
+
   return (
     <div
       className="min-h-screen bg-cover bg-center p-6"
@@ -31,7 +38,16 @@ const TrainerDashboard = () => {
       }}
     >
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-6 text-center">Trainer Dashboard</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold">Trainer Dashboard</h1>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded"
+          >
+            Logout
+          </button>
+        </div>
+
         <h2 className="text-xl font-semibold mb-4">Your Booked Members</h2>
 
         {bookings.length === 0 ? (
